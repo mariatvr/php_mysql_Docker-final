@@ -30,10 +30,13 @@ $asientos_ocupados = 0;
 
 if (isset($_SESSION['ocupados'])) {
     $asientos_ocupados = count($_SESSION['ocupados']);
-}
+} 
 
 $asientos_disponibles = $asientos_totales - $asientos_ocupados;
-
+if ($asientos_disponibles==0){
+    header("Location: despegue.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
