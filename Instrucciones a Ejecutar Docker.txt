@@ -1,0 +1,23 @@
+Requerimientos:
+docker compose correctamente instalado
+
+La primera vez:
+docker compose up -d --build
+
+#Esto crea la instancia y la levanta
+El resto de veces basta con:
+docker compose up -d
+
+Para acceder:
+http://localhost:8000/ # Para phpmyadmin
+http://localhost:8001/ # Probar aplicacion
+
+Usuarios de prueba:
+ana     ana
+admin   admin
+luis    luis
+
+Para parar la instancia:
+docker compose down
+
+
