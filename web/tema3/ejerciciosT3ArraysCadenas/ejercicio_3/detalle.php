@@ -51,8 +51,8 @@ if (!isset($_SESSION['empresa'])) {
                 <th>Ingreso Total</th>
               </tr>";
 
-        for ($p = 1; $p <= 10; $p++) {
-            $datos = $_SESSION['empresa'][$v][$p];
+        for ($producto = 1; $producto <= 10; $producto++) {
+            $datos = $_SESSION['empresa'][$vendedor][$producto];
             
             $cantidad = $datos['cantidad'];
             $precio = $datos['precio'];
@@ -61,8 +61,8 @@ if (!isset($_SESSION['empresa'])) {
             $total_vendedor += $ingreso_total;
             
             echo "<tr>";
-            echo "<td>vendedor$v</td>";
-            echo "<td>producto$p</td>";
+            echo "<td>vendedor$vendedor</td>";
+            echo "<td>producto$producto</td>";
             echo "<td>$cantidad</td>";
             echo "<td>" . number_format($precio, 2) . " €</td>";
             echo "<td>" . number_format($ingreso_total, 2) . " €</td>";

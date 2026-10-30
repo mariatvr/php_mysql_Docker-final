@@ -14,11 +14,11 @@ if (isset($_POST['vendedor'], $_POST['producto'], $_POST['cantidad'])) {
     $p = (int)$_POST['producto'];
     $cantidad_nueva = (int)$_POST['cantidad'];
 
-    $_SESSION['empresa'][$v][$p]['cantidad'] += $cantidad_nueva;
+    $_SESSION['empresa'][$vendedor][$producto]['cantidad'] += $cantidad_nueva;
     
-    $total_acumulado = $_SESSION['empresa'][$v][$p]['cantidad'];
+    $total_acumulado = $_SESSION['empresa'][$vendedor][$producto]['cantidad'];
     
-    $mensaje = "¡Venta registrada! Se han añadido $cantidad_nueva unidades. El Vendedor $v ahora tiene un total de $total_acumulado unidades del Producto $p.";
+    $mensaje = "¡Venta registrada! Se han añadido $cantidad_nueva unidades. El Vendedor $v ahora tiene un total de $total_acumulado unidades del Producto $producto.";
 }
 ?>
 <!DOCTYPE html>
@@ -67,6 +67,6 @@ if (isset($_POST['vendedor'], $_POST['producto'], $_POST['cantidad'])) {
     </form>
 
     <br>
-    <a class="volver" href="index.php">Volver al Menú</a>
+    <a class="volver" href="index.php">vendedorVolver al Menú</a>
 </body>
 </html>
