@@ -1,7 +1,7 @@
 <?php 
 
 $fecha_introducida="";
-
+// Comprobar si se ha enviado el formulario
 if(isset($_POST['fecha'])){
     $fecha_introducida= trim($_POST['fecha']);
 } else {
@@ -12,7 +12,7 @@ if(isset($_POST['fecha'])){
 $partes=explode("/", $fecha_introducida);
 
 $mensaje = "";
-
+// Validar el formato de la fecha
 if (count($partes)!= 3){
     $mensaje="El formato de fecha no es válido.";
 } else{
@@ -55,6 +55,7 @@ if (count($partes)!= 3){
 }
 }
 
+// Redirigir a index.php con el mensaje de error o éxito
 if ($mensaje != "") {
     header("Location: index.php?error=" . urlencode($mensaje));
 } else {

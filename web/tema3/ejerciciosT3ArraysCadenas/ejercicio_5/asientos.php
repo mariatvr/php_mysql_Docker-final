@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Validar si se ha enviado datos sobre el asiento seleccionado
 if (isset($_POST['fila']) && isset($_POST['columna'])) {
     $mensaje="";
     $fila_pulsada = $_POST['fila'];
@@ -7,7 +8,7 @@ if (isset($_POST['fila']) && isset($_POST['columna'])) {
     $id_asiento = $fila_pulsada . "-" . $columna_pulsada;
     
     $asientosTotales=100;
-    
+     // Inicializar el array de asientos ocupados si no existe
     if (isset($_SESSION['ocupados'][$id_asiento])) {
         unset($_SESSION['ocupados'][$id_asiento]);
         $mensajeLibre="Acabas de liberar el asiento " . $id_asiento;
@@ -17,6 +18,7 @@ if (isset($_POST['fila']) && isset($_POST['columna'])) {
     }
 }
 
+// Función para pintar cada asiento según su estado (ocupado o libre)
 function obtenerImagen($id_asiento){
     if (isset($_SESSION['ocupados'][$id_asiento])) {
         return "asientoRojo.jpg";
@@ -28,10 +30,12 @@ function obtenerImagen($id_asiento){
 $asientos_totales = 100;
 $asientos_ocupados = 0;
 
+// Contar los asientos ocupados
 if (isset($_SESSION['ocupados'])) {
     $asientos_ocupados = count($_SESSION['ocupados']);
 } 
 
+// Calcular los asientos disponibles
 $asientos_disponibles = $asientos_totales - $asientos_ocupados;
 if ($asientos_disponibles==0){
     header("Location: despegue.php");
@@ -76,6 +80,7 @@ if ($asientos_disponibles==0){
 <body>
     <h1>RESERVA DE ASIENTOS</h1>
     <h3>Asientos disponibles: <?= $asientos_disponibles ?></h3>
+    // Mostrar mensajes de reserva o liberación de asientos
     <h4><?php if (!empty($mensaje)): ?>
             <div class="asientoReservado">
                 <?= $mensaje; ?>

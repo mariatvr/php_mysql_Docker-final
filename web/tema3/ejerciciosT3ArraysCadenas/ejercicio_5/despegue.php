@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Reiniciar la sesión y volver a la página de asientos
 if (isset($_POST['reiniciar'])) {
     unset($_SESSION['ocupados']);
     header("Location: asientos.php");

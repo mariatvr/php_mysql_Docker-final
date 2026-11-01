@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Verificar si la sesión de la empresa está inicializada
 if (!isset($_SESSION['empresa'])) {
     header("Location: index.php");
     exit();
@@ -8,12 +9,14 @@ if (!isset($_SESSION['empresa'])) {
 
 $mensaje = "";
 
+// Recoger los datos del formulario de ventas
 if (isset($_POST['vendedor'], $_POST['producto'], $_POST['cantidad'])) {
     
     $v = (int)$_POST['vendedor'];
     $p = (int)$_POST['producto'];
     $cantidad_nueva = (int)$_POST['cantidad'];
 
+    // Actualizar la cantidad vendida del producto para el vendedor seleccionado
     $_SESSION['empresa'][$vendedor][$producto]['cantidad'] += $cantidad_nueva;
     
     $total_acumulado = $_SESSION['empresa'][$vendedor][$producto]['cantidad'];

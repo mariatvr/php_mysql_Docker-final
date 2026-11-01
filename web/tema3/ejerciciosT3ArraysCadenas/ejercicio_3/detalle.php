@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+// Verificar si la sesión de la empresa está inicializada
 if (!isset($_SESSION['empresa'])) {
     header("Location: index.php");
     exit();
@@ -27,6 +27,7 @@ if (!isset($_SESSION['empresa'])) {
         <label for="vendedor">Selecciona el vendedor: </label>
         <select name="vendedor" id="vendedor" required>
             <option value="" disabled selected>Elige un vendedor...</option>
+            // Generar opciones para los vendedores
             <?php
             for ($i = 1; $i <= 18; $i++) {
                 $selected = (isset($_POST['vendedor']) && $_POST['vendedor'] == $i) ? "selected" : "";
@@ -36,8 +37,9 @@ if (!isset($_SESSION['empresa'])) {
         </select>
         <button type="submit">Enviar</button>
     </form>
-
+// Mostrar los detalles del vendedor seleccionado
     <?php
+    //Recoge el valor del vendedor seleccionado
     if (isset($_POST['vendedor'])) {
         $v = (int)$_POST['vendedor'];
         $total_vendedor = 0;
@@ -51,6 +53,7 @@ if (!isset($_SESSION['empresa'])) {
                 <th>Ingreso Total</th>
               </tr>";
 
+        //Reccorremos los productos del vendedor seleccionado
         for ($producto = 1; $producto <= 10; $producto++) {
             $datos = $_SESSION['empresa'][$vendedor][$producto];
             
@@ -60,6 +63,7 @@ if (!isset($_SESSION['empresa'])) {
             
             $total_vendedor += $ingreso_total;
             
+            // Mostrar los detalles del producto del vendedor
             echo "<tr>";
             echo "<td>vendedor$vendedor</td>";
             echo "<td>producto$producto</td>";

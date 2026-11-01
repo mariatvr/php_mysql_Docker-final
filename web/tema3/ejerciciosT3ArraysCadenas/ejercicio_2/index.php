@@ -1,5 +1,6 @@
 <?php
 
+// Inicializar variables para mensajes de error y éxito que vienen de validar.php
 $error = $_GET['error'] ?? "";
 $exito = $_GET['exito'] ?? "";
 
@@ -39,6 +40,7 @@ $exito = $_GET['exito'] ?? "";
         <button type="submit">Validar</button>
     </form>
     <br>
+    // Mostrar mensajes de error o éxito
     <?php if (!empty($error)): ?>
             <div class="alerta-error">
                 <?= $error; ?>

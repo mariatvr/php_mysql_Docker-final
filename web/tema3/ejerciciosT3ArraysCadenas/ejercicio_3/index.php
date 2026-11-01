@@ -1,9 +1,11 @@
 <?php
 session_start();
 
+// Inicializar la sesión con datos de ejemplo si no existen
 if (!isset($_SESSION['empresa'])) {
     $_SESSION['empresa'] = [];
     
+    // Generar datos aleatorios para cada vendedor y producto
     for ($vendedor = 1; $vendedor <= 18; $vendedor++) {
         
         for ($producto = 1; $producto <= 10; $producto++) {
@@ -11,6 +13,7 @@ if (!isset($_SESSION['empresa'])) {
             $cantidad = rand(0, 15);
             $precio = rand(10, 300) / 10; 
             
+            // Guardar los datos en la sesión
             $_SESSION['empresa'][$vendedor][$producto] = [
                 'cantidad' => $cantidad,
                 'precio' => $precio

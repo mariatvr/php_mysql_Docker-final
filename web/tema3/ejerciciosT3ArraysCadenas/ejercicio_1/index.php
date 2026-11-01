@@ -1,5 +1,5 @@
 <?php
-
+// Recuperar los valores de error y éxito de la URL
 $error = $_GET['error'] ?? "";
 $exito = $_GET['exito'] ?? "";
 
@@ -74,6 +74,7 @@ $exito = $_GET['exito'] ?? "";
         <button class="btn-descifrar" type="submit" formaction="./descifrar.php">Descifrar</button>
     </form>
     <br>
+    // Mostrar mensajes de error o éxito si existen
         <?php if (!empty($error)): ?>
         <div class="resultado alerta-error">
             <?= $error; ?>

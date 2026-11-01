@@ -2,7 +2,7 @@
 $mensaje = "";
 $semilla = "";
 
-
+// Recuperar el mensaje y la semilla del formulario
 if (isset($_POST['mensaje'], $_POST['semilla'])){
     $mensaje=trim($_POST['mensaje']);
     $semilla=$_POST['semilla'];
@@ -14,6 +14,7 @@ if (isset($_POST['mensaje'], $_POST['semilla'])){
 $error="";
 $exito="";
 
+// Validar que el mensaje solo contenga letras y que la semilla sea un número positivo
 if (preg_match('/^[a-zA-ZñÑ]+$/u', $mensaje)) {
     if(preg_match('/^[a-zA-ZñÑ]+$/u', $semilla)){
 
@@ -27,6 +28,7 @@ if (preg_match('/^[a-zA-ZñÑ]+$/u', $mensaje)) {
                 $mensaje = mb_strtoupper($mensaje, "UTF-8");
                 $mensajeCifrado = "";
 
+                // Recorrer cada letra del mensaje y cifrarla
                 for ($i = 0; $i < mb_strlen($mensaje, "UTF-8"); $i++) {
                         $letraMen= mb_substr($mensaje, $i, 1, "UTF-8");
                         $posSemilla = $i % mb_strlen($semilla, "UTF-8");
@@ -50,6 +52,7 @@ if (preg_match('/^[a-zA-ZñÑ]+$/u', $mensaje)) {
     $error="El mensaje no puede tener caracteres que no sean letras.";
 }
 
+// Redirigir a index.php con los mensajes de error o éxito
 if ($error != "") {
     header("Location: index.php?error=" . urlencode($error));
 } else {

@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Verificar si la sesión de la empresa está inicializada
 if (!isset($_SESSION['empresa'])) {
     header("Location: index.php");
     exit();
@@ -33,6 +34,7 @@ $ingresos_totales_empresa = 0;
             </tr>
         </thead>
         <tbody>
+            // Calcular y mostrar los totales por vendedor
             <?php
             for ($vendedor = 1; $vendedor <= 18; $vendedor++) {
                 
