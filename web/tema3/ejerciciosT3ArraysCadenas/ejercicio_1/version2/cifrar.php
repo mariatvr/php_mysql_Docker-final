@@ -53,7 +53,7 @@ if (preg_match('/^[a-zA-ZñÑ]+$/u', $mensaje)) {
 if ($error != "") {
     header("Location: index.php?error=" . urlencode($error));
 } else {
-    header("Location: index.php?exito=" . urlencode($exito));
+    header("Location: index.php?exito=" . urlencode($exito) . "&mensaje=" . urlencode($mensajeCifrado) . "&semilla=" . urlencode($semilla));
 }
 exit();
 

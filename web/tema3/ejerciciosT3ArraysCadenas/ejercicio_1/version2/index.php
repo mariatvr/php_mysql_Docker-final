@@ -61,10 +61,10 @@ $exito = $_GET['exito'] ?? "";
 
     <form method="post">
         <label for="mensaje">Mensaje:</label><br>
-        <input type="text" id="mensaje" name="mensaje" required><br>
+        <input type="text" id="mensaje" name="mensaje" value="<?= $_GET['mensaje'] ?? '' ?>" required><br>
 
         <label for="semilla">Semilla:</label><br>
-        <input type="text" id="semilla" name="semilla" required><br><br>
+        <input type="text" id="semilla" name="semilla" value="<?= $_GET['semilla'] ?? '' ?>" required><br><br>
 
         <button class="btn-cifrar" type="submit" formaction="./cifrar.php">Cifrar</button>
 
