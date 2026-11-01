@@ -4,6 +4,7 @@ $error = $_GET['error'] ?? "";
 $exito = $_GET['exito'] ?? "";
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -61,10 +62,12 @@ $exito = $_GET['exito'] ?? "";
 
     <form method="post">
         <label for="mensaje">Mensaje:</label><br>
-        <input type="text" id="mensaje" name="mensaje" value="<?= $_GET['mensaje'] ?? '' ?>" required><br>
+        <input type="text" id="mensaje" name="mensaje" 
+        value="<?= $_GET['mensaje'] ?? '' ?>" required><br>
 
         <label for="semilla">Semilla:</label><br>
-        <input type="number" id="semilla" name="semilla" value="<?= $_GET['semilla'] ?? '' ?>" required><br><br>
+        <input type="number" id="semilla" name="semilla" 
+        value="<?= $_GET['semilla'] ?? '' ?>" required><br><br>
 
         <button class="btn-cifrar" type="submit" formaction="./cifrar.php">Cifrar</button>
 

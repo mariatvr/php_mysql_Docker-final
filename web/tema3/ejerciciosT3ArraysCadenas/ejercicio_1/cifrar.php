@@ -40,7 +40,9 @@ if (preg_match('/^[a-zA-ZñÑ]+$/u', $mensaje)) {
             $mensajeCifrado .= $letraCifrada;
         }
 
-        $exito = "Mensaje recibido: " . $mensaje . "<br>Semilla recibida: " . $semilla . "<br>Mensaje cifrado: " . $mensajeCifrado;
+        $exito = "Mensaje recibido: " . 
+        $mensaje . "<br>Semilla recibida: " . 
+        $semilla . "<br>Mensaje cifrado: " . $mensajeCifrado;
     }
 } else {
     $error = "El mensaje no puede tener caracteres que no sean letras.";
